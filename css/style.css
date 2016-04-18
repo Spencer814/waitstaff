@@ -22,7 +22,7 @@ h2 {
 }
 
 h3 {
-  padding: 0 0 1em 0;
+  padding-bottom: 1em;
   margin: 0;
   border-bottom: 1px solid black;
   text-shadow: 0 2px 0 white;
@@ -39,11 +39,11 @@ input {
   height: 24px;
   background: none;
   font-size: 18px;
-  border: 0 solid;
+  border: 1px solid #4c3f4a;
   border-radius: 5px;
   margin: 0.5em;
   background-color: #b5c99c;
-  box-shadow: inset 0 0 10px #4c3f4a;
+  box-shadow: inset 0 0 10px #4c3f4a, 0 10px 30px #4c3f4a;
   color: #4c3f4a;
   padding-bottom: 1.5em;
   text-align: center;
@@ -62,7 +62,7 @@ header {
   padding: 1.5em 0;
   margin: 1em 1em 1.5em 1em;
   border-top: solid 1em #36393e;
-  box-shadow: inset 0 0 10px #4c3f4a;
+  box-shadow: inset 0 0 10px #4c3f4a, 0 10px 30px black;
   border-radius: 10px;
 }
 
@@ -71,14 +71,14 @@ footer {
   border-bottom: solid 1em #36393e;
   padding: 5em 0;
   margin: 1.5em 1em 0 1em;
-  box-shadow: inset 0 0 10px #4c3f4a;
+  box-shadow: inset 0 0 10px #4c3f4a, 0 10px 30px black;
   border-radius: 10px;
 }
 
 table {
   margin: 0 auto;
   border-collapse: separate;
-  border-spacing: 1.5em;
+  border-spacing: 2.5em 1em;
 }
 
 td {
@@ -89,7 +89,7 @@ td {
   background-color: #b5c99c;
   padding: 1px;
   border-radius: 10px;
-  box-shadow: inset 0 0 10px #4c3f4a;
+  box-shadow: inset 0 0 10px #4c3f4a, 0 10px 30px #4c3f4a;
   margin: 0 5em;
 }
 
@@ -108,7 +108,8 @@ td {
 }
 
 .buttons {
-  margin: 15em 0 -15em 0;
+  margin-bottom: -10em;
+  padding: 20em 0 5em 0;
 }
 
 .col-xs-6 {
@@ -118,21 +119,16 @@ td {
 td {
   border: 1px solid black;
   border-radius: 10px;
-  box-shadow: 0px 10px 30px black;
-}
-
-form {
-  margin: 3em auto;
+  box-shadow: 0 10px 30px #4c3f4a;
 }
 
 .espacio {
-  margin-top: -9em;
-  padding-bottom: 1.5em;
+  margin-top: -4em;
+  padding-bottom: 2.5em;
 }
 
 .space {
-  margin-top: 6em;
-  padding-bottom: 5em;
+  padding-top: 1.5em;
 }
 
 .izquierda {
@@ -149,7 +145,6 @@ form {
 .symbolinput {
   border: 1px inset #dbe4e9;
   background: white;
-
 }
 
 .symbolinput input {
@@ -167,5 +162,13 @@ form {
 
 .normal {
   width: 4.5em;
+  border: 1px inset #dbe4e9;
+  background: white;
   text-align: center;
+}
+
+.line {
+  border-top: 1px solid black;
+  padding: 1em 0;
+  width: 65%;
 }
