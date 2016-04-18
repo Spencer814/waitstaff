@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Waitstaff Calculator</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <header>
+        <h1>Waitstaff Calculator</h1>
+    </header>
+    <div class="container-fluid">
+        <div class="input row">
+            <div class="bar">
+                <h2 id="date"></h2>
+            </div>
+            <table cellspacing="10">
+                <tbody>
+                    <tr>
+                        <td rowspan="2" class="col-xs-6">
+                            <h3 class="espacio">Enter the Meal Details</h3>
+                            <div>
+                                <form class="space">
+                                    <label for="base" class="col-xs-6 izquierda">
+                                        <h4>Base Meal Price:</h4>
+                                    </label>
+                                    <label for="base" class="col-xs-6 derecha">
+                                        <h4><span class="symbolinput">$<input id="base" class="detail" type="number" step="1" placeholder="9.99" required></span></h4>
+                                    </label>
+                                    <label for="tax" class="col-xs-6 izquierda">
+                                        <h4>Tax Rate:</h4>
+                                    </label><label for="tax" class="col-xs-6 derecha">
+                                        <h4><span class="symbolinput"><input id="tax" class="adjust" type="number" step="0.5" min="0" max="9.5" placeholder="6" required>%</span></h4>
+                                    </label>
+                                    <label for="tip" class="col-xs-6 izquierda">
+                                        <h4>Tip Percentage:</h4>
+                                    </label><label for="tip" class="col-xs-6 derecha">
+                                        <h4><span class="symbolinput"><input id="tip" class="adjust" type="number" step="5" min="0" max="30" placeholder="20" required>%</span></h4>
+                                    </label>
+                                </form>
+                            </div>
+                            <div class="buttons">
+                                <br />
+                                <button type="submit" class="add">Submit</button>
+                                <button type="cancel" class="sub">Cancel</button>
+                            </div>
+                        </td>
+                        <div class="container-fluid data">
+                            <td class="top row col-xs-6">
+                                <h3>Customer Charges</h3>
+                                <form>
+                                    <label for="total" class="col-xs-6 izquierda">
+                                        <h4>Subtotal:</h4>
+                                    </label>
+                                    <label for="total" class="col-xs-6 derecha">
+                                        <h4><span class="symbolinput">$<input id="total" class="detail" type="number" step="1" placeholder="10.59" required></span></h4>
+                                    </label>
+                                    <label for="subtip" class="col-xs-6 izquierda">
+                                        <h4>Tip:</h4>
+                                    </label>
+                                    <label for="subtip" class="col-xs-6 derecha">
+                                        <h4><span class="symbolinput">$<input id="subtip" class="detail" type="number" step="1" placeholder="2.60" required></span></h4>
+                                    </label>
+                                </form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="bottom row">
+                                <h3>My Earnings Info</h3>
+                                <form>
+                                    <label for="tiptotal" class="col-xs-6 izquierda">
+                                        <h4>Tip Total:</h4>
+                                    </label>
+                                    <label for="tiptotal" class="col-xs-6 derecha">
+                                        <h4><span class="symbolinput">$<input id="tiptotal" class="detail" type="number" step="1" placeholder="12.36" required></span></h4>
+                                    </label>
+                                    <label for="meals" class="col-xs-6 izquierda">
+                                        <h4>Meal Count:</h4>
+                                    </label>
+                                    <label for="meals" class="col-xs-6 derecha">
+                                        <h4><input id="meals" class="normal" type="number" step="1" placeholder="2" required></h4>
+                                    </label>
+                                    <label for="tipbymeal" class="col-xs-6 izquierda">
+                                        <h4>Average Tip Per Meal:</h4>
+                                    </label>
+                                    <label for="tipbymeal" class="col-xs-6 derecha">
+                                        <h4><span class="symbolinput">$<input id="tipbymeal" class="detail" type="number" step="1" placeholder="6.18" required></span></h4>
+                                    </label>
+                                </form>
+                            </td>
+                        </div>
+                    </tr>
+                </tbody>
+            </table>
+            <br/><button type="submit" class="reset">Reset</button>
+        </div>
+    <footer>
+    </footer>
+    <script src="js/angular.min.js"></script>
+	<script src="js/jquery-1.12.0.js"></script>
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/jquery-1.11.4.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
