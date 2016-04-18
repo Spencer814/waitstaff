@@ -24,8 +24,8 @@ h2 {
 h3 {
   padding-bottom: 1em;
   margin: 0;
-  border-bottom: 1px solid black;
-  text-shadow: 0 2px 0 white;
+  border-bottom: 1px solid #36393e;
+  text-shadow: 0 2px 0 #f2f2f2;
 
 }
 
@@ -62,7 +62,7 @@ header {
   padding: 1.5em 0;
   margin: 2em 1em 1.5em 1em;
   border-top: solid 1em #36393e;
-  box-shadow: inset 0 0 10px #4c3f4a, 0 10px 30px black;
+  box-shadow: inset 0 0 10px #4c3f4a, 0 10px 30px #36393e;
   border-radius: 10px;
 }
 
@@ -71,7 +71,7 @@ footer {
   border-bottom: solid 1em #36393e;
   padding: 5em 0;
   margin: 1.5em 1em 2em 1em;
-  box-shadow: inset 0 0 10px #4c3f4a, 0 10px 30px black;
+  box-shadow: inset 0 0 10px #4c3f4a, 0 10px 30px #36393e;
   border-radius: 10px;
 }
 
@@ -117,7 +117,7 @@ td {
 }
 
 td {
-  border: 1px solid black;
+  border: 1px solid #36393e;
   border-radius: 10px;
   box-shadow: 0 10px 30px #4c3f4a;
 }
@@ -144,7 +144,7 @@ td {
 
 .symbolinput {
   border: 1px inset #dbe4e9;
-  background: white;
+  background: #f2f2f2;
 }
 
 .symbolinput input {
@@ -163,12 +163,12 @@ td {
 .normal {
   width: 4.5em;
   border: 1px inset #dbe4e9;
-  background: white;
+  background: #f2f2f2;
   text-align: center;
 }
 
 .line {
-  border-top: 1px solid black;
+  border-top: 1px solid #36393e;
   padding: 1em 0;
   width: 65%;
 }
