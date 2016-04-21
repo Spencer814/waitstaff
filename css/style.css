@@ -172,3 +172,8 @@ td {
   padding: 1em 0;
   width: 65%;
 }
+
+.error {
+  color: #ff0000;
+  font-weight: bold;
+}

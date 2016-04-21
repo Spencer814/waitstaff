@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="waitstaffCalc">
+<html lang="en" ng-app="waitApp">
 <head>
     <meta charset="UTF-8">
     <title>Waitstaff Calculator</title>
@@ -12,94 +12,99 @@
         <h1>Waitstaff Calculator</h1>
     </header>
     <div class="container-fluid">
-        <div class="input row">
+        <div class="input row" ng-controller="waitCtrl">
             <div class="bar">
                 <h2 id="date"></h2>
             </div>
+            <form name="waitAppForm" novalidate>
             <table cellspacing="10">
-                <tbody ng-controller="MultiplicationCtrl" initial-number-limit="10">
+                <tbody>
                     <tr>
                         <td rowspan="2" class="col-xs-6">
                             <h3 class="espacio">Enter the Meal Details</h3>
-                            <form name="myForm" novildate ng-submit="generate()" class="space">
+                            <div ng-form="waitForm" name="waitForm" novildate ng-submit="values(1)" class="space">
                                 <label for="base" class="col-xs-6 izquierda">
                                     <h4>Base Meal Price:</h4>
                                 </label>
                                 <label for="base" class="col-xs-6 derecha">
-                                    <h4><span class="symbolinput">$<input id="base" ng-model="numberLimit" class="detail" type="number" step="1" placeholder="9.99" required></span></h4>
+                                    <h4><span class="symbolinput">$<input name="app" ng-model="base" class="detail" type="number" step="1" min="0" placeholder="9.99" required></span></h4>
                                 </label>
                                 <label for="tax" class="col-xs-6 izquierda">
                                     <h4>Tax Rate:</h4>
                                 </label><label for="tax" class="col-xs-6 derecha">
-                                    <h4><span class="symbolinput"><input id="tax" ng-model="numberLimit" class="adjust" type="number" step="0.5" min="0" max="9.5" placeholder="6" required>%</span></h4>
+                                    <h4><span class="symbolinput"><input name="app" ng-model="tax" class="adjust" type="number" step="0.5" min="0" max="9.5" placeholder="6" required>%</span></h4>
                                 </label>
                                 <label for="tip" class="col-xs-6 izquierda">
                                     <h4>Tip Percentage:</h4>
                                 </label><label for="tip" class="col-xs-6 derecha">
-                                    <h4><span class="symbolinput"><input id="tip" ng-model="numberLimit" class="adjust" type="number" step="5" min="0" max="30" placeholder="20" required>%</span></h4>
+                                    <h4><span class="symbolinput"><input name="app" ng-model="tip" class="adjust" type="number" step="5" min="0" max="30" placeholder="20" required>%</span></h4>
                                 </label>
                                 <div class="buttons">
-                                    <button type="submit" name="myForm" class="add">Submit</button>
-                                    <button type="cancel" class="sub">Cancel</button>
+                                    <button type="reset" name="waitForm" class="add" ng-click="values(1)">Submit</button>
+                                    <button type="reset" name="waitForm" class="sub" ng-click="reset()">Cancel</button>
                                 </div>
-                            </form>
+                                <!-- <div ng-if="waitForm.$submitted" ng-messages="waitForm.app.$error">
+                                    <span class="error" ng-message="required">Please provide the missing information!</span>
+                                </div> -->
+                            </div>
                         </td>
                         <div class="container-fluid data">
                             <td class="top row col-xs-6">
                                 <h3>Customer Charges</h3>
-                                <form>
+                                <div ng-form="waitAppForm">
                                     <label for="total" class="col-xs-6 izquierda">
                                         <h4>Subtotal:</h4>
                                     </label>
                                     <label for="total" class="col-xs-6 derecha">
-                                        <h4><span class="symbolinput">${{ compute() }}</span></h4>
+                                        <h4><span class="symbolinput">${{ subtotal | number:2 }}</span></h4>
                                     </label>
                                     <label for="subtip" class="col-xs-6 izquierda">
                                         <h4>Tip:</h4>
                                     </label>
                                     <label for="subtip" class="col-xs-6 derecha">
-                                        <h4><span class="symbolinput">${{ compute() }}</span></h4>
+                                        <h4><span class="symbolinput">${{ gratuity | number:2 }}</span></h4>
                                     </label>
                                     <label class="line">
                                         <label for="final" class="col-xs-6 izquierda">
                                             <h4>Total:</h4>
                                         </label>
                                         <label for="final" class="col-xs-6 derecha">
-                                            <h4><span class="symbolinput">${{ compute() }}</span></h4>
+                                            <h4><span class="symbolinput">${{ total | number:2 }}</span></h4>
                                         </label>
                                     </label>
-                                </form>
+                                </div>
                             </td>
                         </div>
                     </tr>
                     <tr>
                         <td class="bottom row">
                             <h3>My Earnings Info</h3>
-                            <form>
+                            <div ng-form="waitAppForm">
                                 <label for="tiptotal" class="col-xs-6 izquierda">
                                     <h4>Tip Total:</h4>
                                 </label>
                                 <label for="tiptotal" class="col-xs-6 derecha">
-                                    <h4><span class="symbolinput">${{ compute() }}</span></h4>
+                                    <h4><span class="symbolinput">${{ tiptotal | number:2 }}</span></h4>
                                 </label>
                                 <label for="meals" class="col-xs-6 izquierda">
                                     <h4>Meal Count:</h4>
                                 </label>
                                 <label for="meals" class="col-xs-6 derecha">
-                                    <h4><span class="normal">{{ count.meals }}</span></h4>
+                                    <h4><span class="normal">{{ counter }}</span></h4>
                                 </label>
-                                <label for="tipbymeal" class="col-xs-6 izquierda">
+                                <label for="average" class="col-xs-6 izquierda">
                                     <h4>Average Tip Per Meal:</h4>
                                 </label>
-                                <label for="tipbymeal" class="col-xs-6 derecha">
-                                    <h4><span class="symbolinput">${{ compute() }}</span></h4>
+                                <label for="average" class="col-xs-6 derecha">
+                                    <h4><span class="symbolinput">${{ average | number:2 }}</span></h4>
                                 </label>
-                            </form>
+                            </div>
                         </td>
                     </tr>
                 </tbody>
             </table>
-            <br/><button type="submit" class="reset" ng-click="reset()">Reset</button>
+            <br/><button type="reset" name="waitAppForm" class="reset" ng-click="resetAll()">Reset</button>
+            </form>
         </div>
     </div>
     <footer>
