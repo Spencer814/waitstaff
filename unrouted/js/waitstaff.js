@@ -5,6 +5,7 @@ var waitAppModule = angular.module('waitAppModule', [
 var app = angular.module('waitApp', []);
 app.controller('waitCtrl', function($scope) {
 
+  $scope.date = new Date();
   $scope.counter = 0;
   $scope.tips = 0;
   $scope.values = function(meal) {
@@ -24,12 +25,7 @@ app.controller('waitCtrl', function($scope) {
     $scope.average = $scope.tips / $scope.counter;
   };
 
-  // $scope.hide = false;
-
   $scope.reset = function() {
-      // $scope.hide = false;
-      // $scope.submitted = false;
-      // $scope.info = {};
       $scope.waitForm.$setPristine();
   };
 
