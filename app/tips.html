@@ -1,0 +1,45 @@
+<div class="unit">
+    <div class="panel panel-primary">
+        <div class="panel-heading center"><h4>My Earnings for this Shift</h4></div>
+        <div class="panel-body">
+            <form name="waitAppForm">
+                <div class="row">
+                    <div class="col-lg-6 col-xs-6">
+                        <h5>Tip Total:</h5>
+                    </div>
+                    <div class="col-lg-6 col-xs-6">
+                        <div class="input-group">
+                            <span class="input-group-addon">$</span>
+                            <input class="form-control align" placeholder="0.00" value="{{ tiptotal | currency }}" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-xs-6">
+                        <h5>Meal Count:</h5>
+                    </div>
+                    <div class="col-lg-6 col-xs-6">
+                        <div class="input-group">
+                            <span class="input-group-addon">$</span>
+                            <input class="form-control align" placeholder="0" value="{{ counter }}" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-xs-6">
+                        <h5>Average Tip:</h5>
+                    </div>
+                    <div class="col-lg-6 col-xs-6">
+                        <div class="input-group">
+                            <span class="input-group-addon">$</span>
+                            <input class="form-control align" placeholder="0.00" value="{{ average | currency }}" readonly>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="panel-footer button">
+            <button type="reset" name="waitAppForm" class="reset" ng-click="resetAll()">Reset</button>
+        </div>
+    </div>
+</div>
