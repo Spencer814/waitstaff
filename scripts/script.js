@@ -2,13 +2,13 @@
 angular.module('waitApp', ['ngRoute', 'ngAnimate'])
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider.when('/', {
-            templateUrl : 'home.html',
+            templateUrl : 'views/home.html',
             controller : 'homeCtrl'
         }).when('/meal', {
-            templateUrl : 'meal.html',
+            templateUrl : 'views/meal.html',
             controller : 'mealCtrl'
         }).when('/tips', {
-            templateUrl : 'tips.html',
+            templateUrl : 'views/tips.html',
             controller : 'tipsCtrl'
         }).otherwise({
             redirectTo : '/'
