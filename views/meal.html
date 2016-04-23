@@ -2,7 +2,7 @@
     <div class="panel panel-primary">
         <div class="panel-heading center"><h4>Enter the Meal Details</h4></div>
         <div class="panel-body">
-            <form name="waitForm" novildate ng-submit="values(1)" class="button">
+            <form name="waitForm" novalidate class="button">
                 <div class="row">
                     <div class="col-lg-6 col-xs-6">
                         <h5>Base Meal Price:</h5>
@@ -10,7 +10,7 @@
                     <div class="col-lg-6 col-xs-6">
                         <div class="input-group">
                             <span class="input-group-addon">$</span>
-                            <input type="number" ng-model="base" class="form-control align" step="1" min="0" placeholder="0.00" required>
+                            <input type="number" ng-model="meal.base_price" class="form-control align" step="1" min="0" placeholder="0.00" required>
                         </div>
                     </div>
                 </div>
@@ -20,7 +20,7 @@
                     </div>
                     <div class="col-lg-6 col-xs-6">
                         <div class="input-group">
-                            <input ng-model="tax" class="form-control percent" type="number" step="0.5" min="0" max="9.5" placeholder="0" required>
+                            <input ng-model="meal.tax_rate" class="form-control percent" type="number" step="0.5" min="0" max="9.5" placeholder="0" required>
                             <span class="input-group-addon">%</span>
                         </div>
                     </div>
@@ -31,17 +31,18 @@
                     </div>
                     <div class="col-lg-6 col-xs-6">
                         <div class="input-group">
-                            <input ng-model="tip" class="form-control percent" type="number" step="5" min="0" max="30" placeholder="0" required>
+                            <input ng-model="meal.tip_percentage" class="form-control percent" type="number" step="5" min="0" max="30" placeholder="0" required>
                             <span class="input-group-addon">%</span>
                         </div>
                     </div>
                 </div>
+                <div class="panel-footer button">
+                    <button type="submit" name="waitForm" class="btn add" ng-click="compute()">Submit</button>
+                    <button class="btn sub" ng-click="cancel()">Cancel</button>
+                </div>                
             </form>
         </div>
-        <div class="panel-footer button">
-            <button type="reset" name="waitForm" class="btn add" ng-click="values(1)">Submit</button>
-            <button type="reset" name="waitForm" class="btn sub" ng-click="reset()">Cancel</button>
-        </div>
+
     </div>
 </div>
 <div class="unit">
@@ -56,7 +57,7 @@
                     <div class="col-lg-6 col-xs-6">
                         <div class="input-group">
                             <span class="input-group-addon">$</span>
-                            <input class="form-control align" placeholder="0.00" value="{{ subtotal | currency }}" readonly>
+                            <input class="form-control align" placeholder="0.00" value="{{ customer.subtotal | currency }}" readonly>
                         </div>
                     </div>
                 </div>
@@ -67,7 +68,7 @@
                     <div class="col-lg-6 col-xs-6">
                         <div class="input-group">
                             <span class="input-group-addon">$</span>
-                            <input class="form-control align" placeholder="0.00" value="{{ gratuity | currency }}" readonly>
+                            <input class="form-control align" placeholder="0.00" value="{{ customer.tip | currency }}" readonly>
                         </div>
                     </div>
                 </div>
@@ -81,7 +82,7 @@
                 <div class="col-lg-6 col-xs-6">
                     <div class="input-group">
                         <span class="input-group-addon">$</span>
-                        <input class="form-control align" placeholder="0.00" value="{{ total | currency }}" readonly>
+                        <input class="form-control align" placeholder="0.00" value="{{ customer.total | currency }}" readonly>
                     </div>
                 </div>
             </div>
