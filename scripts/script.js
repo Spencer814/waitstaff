@@ -1,4 +1,3 @@
-'use strict';
 angular.module('waitApp', ['ngRoute', 'ngAnimate'])
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider.when('/', {
@@ -33,13 +32,6 @@ angular.module('waitApp', ['ngRoute', 'ngAnimate'])
                 tips : 0,
                 avgTips : 0
             };
-            // $scope.reset();
-            // $scope.counter = 0;
-            // $scope.subtotal = null;
-            // $scope.gratuity = null;
-            // $scope.total = null;
-            // $scope.tiptotal = null;
-            // $scope.average = null;
           };
     }])
 
@@ -59,17 +51,13 @@ angular.module('waitApp', ['ngRoute', 'ngAnimate'])
                 $rootScope.staff.tips += $scope.customer.tip;
                 $rootScope.staff.meals++;
                 $rootScope.staff.avgTips = $rootScope.staff.tips/$rootScope.staff.meals;
-            }
-        };
-
-        $scope.submit = function() {
-            if($scope.waitForm.$submitted && $scope.waitForm.$valid && !($scope.waitForm.$pristine)) {
-                $scope.compute();
+                $scope.cancel();
             }
         };
 
         $scope.cancel = function() {
-            $scope.waitForm.$setPristine();
-            $rootScope.meal = {};
+            $scope.meal.base_price = null;
+            $scope.meal.tax_rate = null;
+            $scope.meal.tip_percentage = null;
         };
     }]);

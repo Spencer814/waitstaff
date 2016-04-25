@@ -1,16 +1,16 @@
 <div class="unit">
-    <div class="panel panel-primary">
-        <div class="panel-heading center"><h4>Enter the Meal Details</h4></div>
-        <div class="panel-body">
-            <form name="waitForm" novalidate class="button">
+    <form name="waitForm" novalidate class="button" ng-submit="compute()">
+        <div class="panel panel-primary">
+            <div class="panel-heading center"><h4>Enter the Meal Details</h4></div>
+            <div class="panel-body">
                 <div class="row">
                     <div class="col-lg-6 col-xs-6">
                         <h5>Base Meal Price:</h5>
                     </div>
                     <div class="col-lg-6 col-xs-6">
                         <div class="input-group">
-                            <span class="input-group-addon">$</span>
-                            <input type="number" ng-model="meal.base_price" class="form-control align" step="1" min="0" placeholder="0.00" required>
+                            <input id="base_price" type="number" ng-model="meal.base_price" class="form-control align" step="1" min="0" placeholder="0.00" required>
+                            <label class="form-control overlay" for="base_price">{{(meal.base_price | currency) || "0.00"}}</label>
                         </div>
                     </div>
                 </div>
@@ -36,14 +36,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="panel-footer button">
-                    <button type="submit" name="waitForm" class="btn add" ng-click="compute()">Submit</button>
-                    <button class="btn sub" ng-click="cancel()">Cancel</button>
-                </div>                
-            </form>
+            </div>
+            <div class="panel-footer button">
+                <input type="submit" name="waitForm" class="btn add" ng-click="compute()" value="Submit">
+                <input type="submit" class="btn sub" ng-disabled="waitForm.$pristine" ng-click="cancel()" value="Cancel">
+            </div>
         </div>
-
-    </div>
+    </form>
 </div>
 <div class="unit">
     <div class="panel panel-primary">
@@ -57,7 +56,7 @@
                     <div class="col-lg-6 col-xs-6">
                         <div class="input-group">
                             <span class="input-group-addon">$</span>
-                            <input class="form-control align" placeholder="0.00" value="{{ customer.subtotal | currency }}" readonly>
+                            <input class="form-control align" placeholder="0.00" value="{{ customer.subtotal | number:2 }}" readonly>
                         </div>
                     </div>
                 </div>
@@ -68,7 +67,7 @@
                     <div class="col-lg-6 col-xs-6">
                         <div class="input-group">
                             <span class="input-group-addon">$</span>
-                            <input class="form-control align" placeholder="0.00" value="{{ customer.tip | currency }}" readonly>
+                            <input class="form-control align" placeholder="0.00" value="{{ customer.tip | number:2 }}" readonly>
                         </div>
                     </div>
                 </div>
@@ -82,7 +81,7 @@
                 <div class="col-lg-6 col-xs-6">
                     <div class="input-group">
                         <span class="input-group-addon">$</span>
-                        <input class="form-control align" placeholder="0.00" value="{{ customer.total | currency }}" readonly>
+                        <input class="form-control align" placeholder="0.00" value="{{ customer.total | number:2 }}" readonly>
                     </div>
                 </div>
             </div>
