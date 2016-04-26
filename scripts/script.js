@@ -13,6 +13,20 @@ angular.module('waitApp', ['ngRoute', 'ngAnimate'])
             redirectTo : '/'
         });
     }])
+    .run(function($rootScope, $location, $timeout) {
+        // $rootScope.$on('$routeChangeError', function() {
+        //     $location.path("/error");
+        // });
+        $rootScope.$on('$routeChangeStart', function() {
+            $rootScope.isLoading = true;
+        });
+        $rootScope.$on('$routeChangeSuccess', function() {
+          $timeout(function() {
+            $rootScope.isLoading = false;
+          }, 1000);
+        });
+    })
+
     .controller('waitCtrl', function($scope, $location) {
         $scope.date = new Date();
         $scope.isActive = function(viewLocation) {
