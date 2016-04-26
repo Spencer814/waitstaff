@@ -14,9 +14,9 @@ angular.module('waitApp', ['ngRoute', 'ngAnimate'])
         });
     }])
     .run(function($rootScope, $location, $timeout) {
-        // $rootScope.$on('$routeChangeError', function() {
-        //     $location.path("/error");
-        // });
+        $rootScope.$on('$routeChangeError', function() {
+            $location.path("/error");
+        });
         $rootScope.$on('$routeChangeStart', function() {
             $rootScope.isLoading = true;
         });
