@@ -1,35 +1,43 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="waitApp">
-<head>
+  <head>
     <meta charset="UTF-8">
     <title>Waitstaff Calculator</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bree+Serif">
-</head>
-<body ng-class="{loading: isLoading}">
+  </head>
+  <body ng-class="{loading: isLoading}">
     <div class="contanier-fluid">
-        <div class="header">
-            <h1>Waitstaff Calculator</h1>
+      <div class="page-header header">
+        <h1>
+          Waitstaff Calculator
+          <small>
             <ul class="nav nav-pills">
-                <li ng-class="{active: isActive('#/')}"><a ng-href="#/">Home</a></li>
-                <li ng-class="{active: isActive('#/views/meal')}"><a ng-href="#/meal">New Meal</a></li>
-                <li ng-class="{active: isActive('#/views/tips')}"><a ng-href="#/tips">My Earnings</a></li>
+              <li role="presentation" ng-class="{active: isActive('#/')}">
+                <a ng-href="#/">Home</a>
+              </li>
+              <li role="presentation" ng-class="{active: isActive('#/views/meal')}">
+                <a ng-href="#/meal">New Meal</a>
+              </li>
+              <li role="presentation" ng-class="{active: isActive('#/views/tips')}">
+                <a ng-href="#/tips">My Earnings</a>
+              </li>
             </ul>
-        </div>
-        <div class="nav bar" ng-controller="waitCtrl">
-            <h4 class="col-md-4 col-xs-6 col-sm-4">{{date | date:"EEEE"}}</h4>
-            <h4 class="col-md-4 col-xs-6 col-sm-4">{{date | date:"MMM d, y"}}</h4>
-            <h4 class="col-md-4 col-xs-6 col-sm-4">{{date | date:"h:mm a"}}</h4>
-        </div>
-        <div class="animate-view-container">
-            <div ng-view class="animate-view"></div>
-        </div>
-        <!-- <div class="animate-view-container footer"></div> -->
+          </small>
+        </h1>
+      </div>
+      <div class="nav nav-justified bar" ng-controller="waitCtrl">
+        <h4 class="col-md-4 col-xs-6 col-sm-4">{{date | date:"EEEE"}}</h4>
+        <h4 class="col-md-4 col-xs-6 col-sm-4">{{date | date:"MMM d, y"}}</h4>
+        <h4 class="col-md-4 col-xs-6 col-sm-4">{{date | date:"h:mm a"}}</h4>
+      </div>
+      <div class="animate-view-container">
+        <div ng-view class="animate-view"></div>
+      </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-animate.min.js"></script>
     <script src="scripts/script.js"></script>
-</body>
+  </body>
 </html>

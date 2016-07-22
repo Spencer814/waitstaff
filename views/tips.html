@@ -1,44 +1,46 @@
 <div class="unit">
-    <div class="panel panel-primary">
-        <div class="panel-heading center"><h4>My Earnings for this Shift</h4></div>
-        <div class="panel-body">
-            <form name="waitAppForm">
-                <div class="row">
-                    <div class="col-lg-6 col-xs-6">
-                        <h5>Tip Total:</h5>
-                    </div>
-                    <div class="col-lg-6 col-xs-6">
-                        <div class="input-group">
-                            <span class="input-group-addon">$</span>
-                            <input class="form-control align" placeholder="0.00" value="{{ staff.tips | number:2 }}" readonly>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6 col-xs-6">
-                        <h5>Meal Count:</h5>
-                    </div>
-                    <div class="col-lg-6 col-xs-6">
-                        <div class="input-group">
-                            <input class="form-control align" placeholder="0" value="{{ staff.meals }}" readonly>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6 col-xs-6">
-                        <h5>Average Tip:</h5>
-                    </div>
-                    <div class="col-lg-6 col-xs-6">
-                        <div class="input-group">
-                            <span class="input-group-addon">$</span>
-                            <input class="form-control align" placeholder="0.00" value="{{ staff.avgTips | number:2 }}" readonly>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
-        <div class="panel-footer button">
-            <button type="reset" name="waitAppForm" class="reset" ng-click="reset()">Reset</button>
-        </div>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h4 class="panel-title">My Earnings for this Shift</h4>
     </div>
+    <div class="panel-body">
+      <form name="waitAppForm">
+        <div class="row">
+          <div class="col-lg-6 col-xs-6">
+            <h5 class="lead">Tip Total:</h5>
+          </div>
+          <div class="col-lg-6 col-xs-6">
+            <div class="input-group">
+              <span class="lead input-group-addon">$</span>
+              <input class="lead form-control align" placeholder="0.00" value="{{ staff.tips | number:2 }}" readonly>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 col-xs-6">
+            <h5 class="lead">Meal Count:</h5>
+          </div>
+          <div class="col-lg-6 col-xs-6">
+            <div class="input-group">
+              <input class="lead form-control align" placeholder="0" value="{{ staff.meals }}" readonly>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 col-xs-6">
+            <h5 class="lead">Average Tip:</h5>
+          </div>
+          <div class="col-lg-6 col-xs-6">
+            <div class="input-group">
+              <span class="lead input-group-addon">$</span>
+              <input class="lead form-control align" placeholder="0.00" value="{{ staff.avgTips | number:2 }}" readonly>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="panel-footer button">
+      <button type="reset" name="waitAppForm" class="lead reset" ng-click="reset()">Reset</button>
+    </div>
+  </div>
 </div>
