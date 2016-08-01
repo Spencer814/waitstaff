@@ -1,91 +1,99 @@
-<div class="unit">
-  <form name="waitForm" novalidate class="button" ng-submit="compute()">
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-        <h4 class="panel-title">Enter the Meal Details</h4>
-      </div>
-      <div class="panel-body">
-        <div class="row">
-          <div class="col-lg-6 col-xs-6">
-            <h5 class="lead">Base Meal Price:</h5>
-          </div>
-          <div class="col-lg-6 col-xs-6">
-            <div class="input-group">
-              <input id="base_price" type="number" ng-model="meal.base_price" class="lead form-control align" step="1" min="0" placeholder="0.00" required>
-              <label class="lead form-control overlay" for="base_price">{{(meal.base_price | currency) || "0.00"}}</label>
+<div class="contanier-fluid">
+  <div class="row">
+    <div class="meal col-lg-6">
+      <div class="unit">
+        <form name="waitForm" novalidate class="button" ng-submit="compute()">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h4 class="panel-title">Enter the Meal Details</h4>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="left-detail col-xs-6">
+                  <h5 class="lead">Base Meal Price:</h5>
+                </div>
+                <div class="col-xs-6">
+                  <div class="input-group">
+                    <input id="base_price" type="number" ng-model="meal.base_price" class="lead form-control align" step="1" min="0" placeholder="0.00" required>
+                    <label class="lead form-control overlay" for="base_price">{{(meal.base_price | currency) || "0.00"}}</label>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="left-detail col-xs-6">
+                  <h5 class="lead">Tax Rate:</h5>
+                </div>
+                <div class="col-xs-6">
+                  <div class="input-group">
+                    <input ng-model="meal.tax_rate" class="lead form-control percent" type="number" step="0.5" min="0" max="9.5" placeholder="0" required>
+                    <span class="lead input-group-addon">%</span>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="left-detail col-xs-6">
+                  <h5 class="lead">Tip Percentage:</h5>
+                </div>
+                <div class="col-xs-6">
+                  <div class="input-group">
+                    <input ng-model="meal.tip_percentage" class="lead form-control percent" type="number" step="5" min="0" max="30" placeholder="0" required>
+                    <span class="lead input-group-addon">%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="panel-footer button">
+              <input type="submit" name="waitForm" class="btn lead add" ng-click="compute()" value="Submit">
+              <input type="submit" class="btn lead sub" ng-disabled="waitForm.$pristine" ng-click="cancel()" value="Cancel">
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-6 col-xs-6">
-            <h5 class="lead">Tax Rate:</h5>
-          </div>
-          <div class="col-lg-6 col-xs-6">
-            <div class="input-group">
-              <input ng-model="meal.tax_rate" class="lead form-control percent" type="number" step="0.5" min="0" max="9.5" placeholder="0" required>
-              <span class="lead input-group-addon">%</span>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-6 col-xs-6">
-            <h5 class="lead">Tip Percentage:</h5>
-          </div>
-          <div class="col-lg-6 col-xs-6">
-            <div class="input-group">
-              <input ng-model="meal.tip_percentage" class="lead form-control percent" type="number" step="5" min="0" max="30" placeholder="0" required>
-              <span class="lead input-group-addon">%</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="panel-footer button">
-        <input type="submit" name="waitForm" class="btn lead add" ng-click="compute()" value="Submit">
-        <input type="submit" class="btn lead sub" ng-disabled="waitForm.$pristine" ng-click="cancel()" value="Cancel">
+        </form>
       </div>
     </div>
-  </form>
-</div>
-<div class="unit">
-  <div class="panel panel-primary">
-    <div class="panel-heading">
-      <h4 class="panel-title">Customer Charges</h4>
-    </div>
-    <div class="panel-body">
-      <form name="waitAppForm">
-        <div class="row">
-          <div class="col-lg-6 col-xs-6">
-            <h5 class="lead">Subtotal:</h5>
+    <div class="meal col-lg-6">
+      <div class="unit">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h4 class="panel-title">Customer Charges</h4>
           </div>
-          <div class="col-lg-6 col-xs-6">
-            <div class="input-group">
-              <span class="lead input-group-addon">$</span>
-              <input class="lead form-control align" placeholder="0.00" value="{{ customer.subtotal | number:2 }}" readonly>
+          <div class="panel-body">
+            <form name="waitAppForm">
+              <div class="row">
+                <div class="left-title col-xs-6">
+                  <h5 class="lead">Subtotal:</h5>
+                </div>
+                <div class="col-xs-6">
+                  <div class="input-group">
+                    <span class="lead input-group-addon">$</span>
+                    <input class="lead form-control align" placeholder="0.00" value="{{ customer.subtotal | number:2 }}" readonly>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="left-title col-xs-6">
+                  <h5 class="lead">Tip:</h5>
+                </div>
+                <div class="col-xs-6">
+                  <div class="input-group">
+                    <span class="lead input-group-addon">$</span>
+                    <input class="lead form-control align" placeholder="0.00" value="{{ customer.tip | number:2 }}" readonly>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="panel-footer">
+            <div class="row">
+              <div class="left-title col-xs-6">
+                <h5 class="lead">Total:</h5>
+              </div>
+              <div class="col-xs-6">
+                <div class="input-group">
+                  <span class="lead input-group-addon">$</span>
+                  <input class="lead form-control align" placeholder="0.00" value="{{ customer.total | number:2 }}" readonly>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-6 col-xs-6">
-            <h5 class="lead">Tip:</h5>
-          </div>
-          <div class="col-lg-6 col-xs-6">
-            <div class="input-group">
-              <span class="lead input-group-addon">$</span>
-              <input class="lead form-control align" placeholder="0.00" value="{{ customer.tip | number:2 }}" readonly>
-            </div>
-          </div>
-        </div>
-      </form>
-    </div>
-    <div class="panel-footer">
-      <div class="row">
-        <div class="col-lg-6 col-xs-6">
-          <h5 class="lead">Total:</h5>
-        </div>
-        <div class="col-lg-6 col-xs-6">
-          <div class="input-group">
-            <span class="lead input-group-addon">$</span>
-            <input class="lead form-control align" placeholder="0.00" value="{{ customer.total | number:2 }}" readonly>
           </div>
         </div>
       </div>

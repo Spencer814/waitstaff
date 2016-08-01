@@ -4,7 +4,7 @@ html {
   border: none;
   height: 100%;
   margin: 0 auto;
-  max-width: 1080px;
+  max-width: 100%;
   padding: 0;
   position: relative;
   vertical-align: baseline;
@@ -34,7 +34,6 @@ h4,
   border-radius: 10px;
   box-shadow: inset 0 0 10px #4c3f4a, 0 10px 30px #36393e;
   color: #4c3f4a;
-  // font-size: 18px;
   height: 24px;
   margin: 0.5em;
   padding-bottom: 1.65em;
@@ -68,7 +67,7 @@ h5,
   border: 2px solid #35598d;
   border-radius: 10px;
   box-shadow: inset 0 0 10px #4c3f4a, 0 10px 30px #36393e;
-  margin: 2em auto;
+  margin: 0 auto 2em;
   text-align: center;
   width: 70%;
 }
@@ -92,12 +91,13 @@ h1 {
   margin: 1.5em 1em 2em 1em;
   padding: 5em 0;
 }
+.home {
+  background: transparent;
+  border: 0;
+}
 .error {
   color: #ff0000;
   font-weight: bold;
-}
-.row {
-  margin: 1em 0;
 }
 .row h5 {
   padding: 7px 0;
@@ -147,6 +147,9 @@ h1 {
 .animate-view.ng-leave.ng-leave-active {
   opacity: 0;
 }
+.animate-view.row {
+  margin: 0 auto;
+}
 .nav-pills {
   float: none;
   padding: 0;
@@ -162,7 +165,6 @@ h1 {
 }
 .nav > li > a {
   color: #dbe4e9;
-  // font-size: 1.25em;
   text-shadow: 0 1px 0 #489cc1;
 }
 .nav > li > a:focus,
@@ -172,4 +174,134 @@ h1 {
   box-shadow: inset 0 0 10px #489cc1, 0 10px 30px #489cc1;
   color: #489cc1;
   text-shadow: 0 1px 0 #35598d;
+}
+.meal {
+  padding: 0;
+}
+.left-title {
+  width: 45%:
+}
+@media (max-width: 543px) {
+  .bar {
+    display: none;
+  }
+  .nav > h4 {
+    padding-right: 0;
+  }
+  .nav > li {
+    display: block;
+  }
+  .nav > li > a {
+    padding: 5px 10px;
+  }
+  .left-detail {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .unit {
+    width: 90%;
+  }
+  .input-group {
+    width: 100%;
+  }
+  .left-title {
+    width: 40%;
+  }
+}
+@media (min-width: 544px) and (max-width: 767px) {
+  .main {
+    margin: 1em auto;
+  }
+  ul {
+    background: transparent;
+  }
+  .bar {
+    margin: 1em auto;
+    padding: 0.25em;
+    width: 85%;
+  }
+  .nav > h4 {
+    width: 33%;
+  }
+  .unit {
+    width: 80%;
+  }
+  .input-group {
+    width: 80%;
+  }
+  .left-title {
+    width: 40%;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .main {
+    margin: 3em auto;
+  }
+  .bar {
+    margin: 1em auto;
+    padding: 0.5em;
+    width: 85%;
+  }
+  .nav-pills > li {
+    width: 25%;
+  }
+  .unit {
+    width: 70%;
+  }
+  .input-group {
+    width: 60%;
+  }
+  .left-title {
+    width: 45%;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .main {
+    margin: 4.75em auto;
+  }
+  .nav-pills > li {
+    padding: 0 1.5em;
+    width: 25%;
+  }
+  .bar {
+    margin: 2em auto;
+    padding: 0.75em;
+  }
+  .unit {
+    width: 60%;
+  }
+}
+@media (min-width: 1200px) {
+  body,
+  html {
+    max-width: 98%;
+  }
+  .main {
+    margin: 5em auto;
+  }
+  .nav-pills > li {
+    padding: 0 1.5em;
+    width: 25%;
+  }
+  .bar {
+    margin: 3em auto;
+    padding: 1em;
+  }
+  .animate-view {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 90%;
+  }
+  .meal {
+    padding: 0 1em;
+  }
+  .unit {
+    width: 60%;
+  }
+  .meal > .unit {
+    width: 100%;
+  }
+  .input-group {
+    width: 80%;
+  }
 }
