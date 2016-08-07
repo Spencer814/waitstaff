@@ -1,4 +1,4 @@
-Waitstaff Calculator
+Tip Calculator
 ====================
 
 Tip calculator for waitstaff and customers
